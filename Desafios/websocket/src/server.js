@@ -9,7 +9,7 @@ const io = new IOServer(httpServer)
 
 let mensajes = []
 
-app.use(express.static('src'))
+app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
     res.sendFile('index.html', {root: __dirname})
@@ -21,14 +21,12 @@ const server = httpServer.listen(8080,()=>{
 server.on('error',(err)=>{
     console.log(err);
 })
-io.on('connection',(socket)=>{
-    console.log('se conecto un cliente');
-    console.log(socket.id);
-    socket.emit('mensajes',' Hola la comunicación está establecida!')
-    socket.emit('respuestaServer',{msg:"Hola buen día"})
-    socket.on('respuesta',(data)=>{
-        mensajes.push(data);
-        console.log(mensajes);
-        io.sockets.emit('notificacion',mensajes)
-    })
-})
+io.on('connection',socket => {
+    console.log('Un cliente se ha conectado');
+    socket.emit('msg', mensajes);
+
+    socket.on('new-message',data => {
+        messages.push(data);
+        io.sockets.emit('msg', mensajes);
+    });
+ });

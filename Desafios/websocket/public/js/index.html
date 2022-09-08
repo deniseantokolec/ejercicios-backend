@@ -8,9 +8,12 @@ m<!DOCTYPE html>
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <input type="text" name="" id="mensaje">
-    <input id="btn" type="button" value="Enviar">
-    <div id="mgs"></div>
+    <form onsubmit="return addMessage(this)">
+        <input type="text" id="username" placeholder="Tu Nombre" >
+        <input type="text" id="msg" placeholder="Cuéntanos algo...">
+        <input type="submit" value="Enviar">
+    </form>
+    
     <script src="../public/js/index.js"></script>
 </body>
 </html>
