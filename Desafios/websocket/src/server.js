@@ -9,14 +9,14 @@ const io = new IOServer(httpServer)
 
 let mensajes = []
 
-app.use(express.static('public'))
+app.use(express.static('src'))
 
 app.get('/',(req,res)=>{
-    res.sendFile('index.html',{root:__dirname})
+    res.sendFile('index.html', {root: __dirname})
 })
 
 const server = httpServer.listen(8080,()=>{
-    console.log(`El servidor está escuchando por el puerto 8080`);
+    console.log(`El servidor está escuchando por el puerto 3000`);
 })
 server.on('error',(err)=>{
     console.log(err);

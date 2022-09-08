@@ -1,4 +1,5 @@
 <%- include('./partials/nav.ejs')  %> 
+
 <h2>Lista de productos</h2>
 <table>
     <thead>
@@ -15,7 +16,7 @@
                 <td><%= p.id %> </td>
             <td><%= p.title %>  </td>
             <td><%= p.price %> </td>
-            <td> <a href="/productos/detalle/<%= p.id %>"> <img width="250px" src="<%= p.img %> "></a></td>
+            <td> <a href="/producto/<%= p.id %>"> <img width="250px" src="<%= p.img %> "></a></td>
         </tr>
         <% }) %>
     </tbody>
