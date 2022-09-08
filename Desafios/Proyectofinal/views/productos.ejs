@@ -1,4 +1,5 @@
 <%- include('./nav.ejs')  %> 
+<% include ('../routes/producto.js') %> 
 
 <h2>Lista de productos</h2>
 <table>
@@ -20,7 +21,7 @@
                 <td><%= p.title %>  </td>
                 <td><%= p.price %> </td>
                 <td> <a href="/api/producto/<%= p.id %>"> <img width="250px" src="<%= p.img %> "></a></td>
-                <td><button><a href="/api/carrito"></a>Agregar a Carrito</button></td>
+                <td><button onclick={addProducts}><a href="/api/carrito"></a>Agregar a Carrito</button></td>
             </tr>
             
         <% }) %>

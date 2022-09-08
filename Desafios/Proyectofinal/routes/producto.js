@@ -8,6 +8,16 @@ let listaProductos=[
     {id:3 ,title:"Lavarropas", price:12000,img:"https://images.fravega.com/f1000/b2b41234345073e24bbec07b45ed84fe.jpg.webp"}
 ]
 
+const addProducts = () => {
+    router.post('/producto',(req,res)=>{
+        let datos = req.body;
+        datos.id=id++;
+        listaProductos=[...listaProductos,datos]
+        //almacenar los datos
+        res.redirect('/carrito');
+    })
+}
+addProducts()
 router.get('/',(req,res)=>{
     res.render('productos',{productos:listaProductos})
 })
