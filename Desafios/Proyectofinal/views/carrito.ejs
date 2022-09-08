@@ -1,0 +1,30 @@
+<%- include('./nav.ejs')  %> 
+
+<h1>Carrito de Compras</h1>
+
+<table>
+    
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Foto</th>
+            <th>Cantidad</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% carrito.forEach(c => { %>
+            <tr>
+                <td><%= c.id %> </td>
+                <td><%= c.title %>  </td>
+                <td><%= c.price %> </td>
+                <td> <a href="/api/carrito/<%= c.id %>"> <img width="250px" src="<%= c.img %> "></a></td>
+                <td><button><a href="/api/carrito/<%= c.id %>"></a>Delete</button></td> 
+            </tr>
+            
+        <% }) %>
+        
+    </tbody>
+</table>
